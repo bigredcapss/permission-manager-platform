@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.we.pmp.model.mapper.SysRoleDeptMapper">
+
+    <select id="queryDeptIdList" resultType="java.lang.Long">
+        SELECT
+        dept_id
+        FROM sys_role_dept
+        WHERE role_id IN
+        <foreach item="roleId" collection="array" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
+    </select>
+
+    <delete id="deleteBatch">
+		DELETE FROM sys_role_dept WHERE role_id IN (${roleIds})
+	</delete>
+
+    <select id="queryDeptIdListByRoleId" resultType="java.lang.Long">
+		SELECT dept_id
+		FROM sys_role_dept
+		WHERE role_id=#{roleId}
+	</select>
+
+
+</mapper>

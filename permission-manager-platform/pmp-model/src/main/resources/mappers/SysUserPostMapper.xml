@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.we.pmp.model.mapper.SysUserPostMapper">
+
+    <select id="queryPostIdList" resultType="java.lang.Long">
+		SELECT post_id FROM sys_user_post WHERE user_id = #{userId}
+	</select>
+
+    <delete id="deleteBatch">
+		DELETE FROM sys_user_post WHERE role_id IN (${roleIds})
+	</delete>
+
+    <select id="getByUserId" resultType="com.we.pmp.model.entity.SysUserPostEntity">
+		SELECT
+		  a.*,
+		  b.post_name AS postName
+		FROM sys_user_post AS a
+		LEFT JOIN sys_post AS b ON b.post_id = a.post_id
+		WHERE a.user_id = #{userId}
+	</select>
+
+    <select id="getPostNamesByUserId" resultType="java.lang.String">
+		SELECT
+			b.post_name AS postName
+		FROM sys_user_post AS a
+		LEFT JOIN sys_post AS b ON b.post_id = a.post_id
+		WHERE a.user_id = #{userId}
+	</select>
+
+</mapper>

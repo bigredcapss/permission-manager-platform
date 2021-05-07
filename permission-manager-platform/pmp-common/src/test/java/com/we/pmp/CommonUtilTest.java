@@ -1,6 +1,6 @@
 package com.we.pmp;
 
-import com.we.pmp.utils.CommonUtil;
+import com.we.pmp.common.utils.CommonUtil;
 
 /**
  * @author we
