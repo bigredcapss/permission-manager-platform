@@ -41,6 +41,9 @@
         <swagger.version>2.8.0</swagger.version>
         <poi.version>3.17</poi.version>
         <hibernate-validator-version>5.3.5.Final</hibernate-validator-version>
+        <quartz.version>2.3.0</quartz.version>
+        <shiro.version>1.4.0</shiro.version>
+        <kaptcha.version>0.0.9</kaptcha.version>
     </properties>
     <!--子项目自动引入-->
     <dependencies>
@@ -113,6 +116,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
         </dependency>
+        <!--fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
         <!--Redis-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -122,23 +131,6 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>${jedis.version}</version>
-        </dependency>
-        <!--fastjson-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
-        <!--swagger ui-->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.version}</version>
         </dependency>
         <!--poi excel-->
         <dependency>
@@ -157,10 +149,63 @@
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate-validator-version}</version>
         </dependency>
+        <!--freemarker-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <!--quartz任务调度-->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>${quartz.version}</version>
+        </dependency>
+        <!--shiro-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <!--验证码-->
+        <dependency>
+            <groupId>com.github.axet</groupId>
+            <artifactId>kaptcha</artifactId>
+            <version>${kaptcha.version}</version>
+        </dependency>
+        <!--swagger-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
     </dependencies>
     <!--子项目按需引入-->
     <dependencyManagement>
         <dependencies>
+            <!--pmp-common模块-->
+            <dependency>
+                <groupId>com.we</groupId>
+                <artifactId>pmp-common</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <scope>compile</scope>
+            </dependency>
+            <!--pmp-model模块-->
+            <dependency>
+                <groupId>com.we</groupId>
+                <artifactId>pmp-model</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <scope>compile</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
