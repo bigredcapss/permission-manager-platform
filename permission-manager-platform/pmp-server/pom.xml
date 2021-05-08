@@ -9,7 +9,22 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.we</groupId>
     <artifactId>pmp-server</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!--pmp-common模块-->
+        <dependency>
+            <groupId>com.we</groupId>
+            <artifactId>pmp-common</artifactId>
+        </dependency>
+        <!--pmp-model模块-->
+        <dependency>
+            <groupId>com.we</groupId>
+            <artifactId>pmp-model</artifactId>
+        </dependency>
+    </dependencies>
 
 
 </project>
